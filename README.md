@@ -1,8 +1,10 @@
 # mark-book
 
+## SDK 配置
 ![sdk.png](images/img-sdk.png)
 
-
+## JDK配置
+注意要选这IDEA中的jre
 ![jre.png](images/img-jre.png)
 ```
 <!-- 导入的devkit模式的idea插件项目 model必须为 PLUGIN_MODULE -->
