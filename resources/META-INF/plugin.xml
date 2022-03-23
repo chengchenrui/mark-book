@@ -1,38 +1,41 @@
 <idea-plugin>
-  <id>com.cheng.plugin.markbook.id</id>
-  <name>Mark Book</name>
-  <version>1.0</version>
-  <vendor email="chengchenr@qq.com" url="https://www.yourcompany.com">CCR</vendor>
+    <id>com.cheng.plugin.markbook.id</id>
+    <name>Mark Book</name>
+    <version>1.0</version>
+    <vendor email="chengchenr@qq.com" url="https://www.yourcompany.com">CCR</vendor>
 
-  <description><![CDATA[
+    <description><![CDATA[
       添加笔记生成笔记文档的插件，帮助开发者随时记录遇到的问题或者好的代码块。<br>
       <em>MarkDown文档</em>
     ]]></description>
 
-  <change-notes><![CDATA[
+    <change-notes><![CDATA[
       v1.0.0 添加笔记 生成笔记文档<br>
       <em>支持MarkDown笔记生成</em>
     ]]>
-  </change-notes>
+    </change-notes>
 
-  <!-- please see https://plugins.jetbrains.com/docs/intellij/build-number-ranges.html for description -->
-  <idea-version since-build="173.0"/>
+    <!-- please see https://plugins.jetbrains.com/docs/intellij/build-number-ranges.html for description -->
+    <idea-version since-build="173.0"/>
 
-  <!-- please see https://plugins.jetbrains.com/docs/intellij/plugin-compatibility.html
-       on how to target different products -->
-  <depends>com.intellij.modules.platform</depends>
+    <!-- please see https://plugins.jetbrains.com/docs/intellij/plugin-compatibility.html
+         on how to target different products -->
+    <depends>com.intellij.modules.platform</depends>
 
-  <extensions defaultExtensionNs="com.intellij">
-    <!-- Add your extensions here -->
-  </extensions>
+    <extensions defaultExtensionNs="com.intellij">
+        <!-- Add your extensions here -->
+        <toolWindow factoryClass="com.cheng.plugin.markbook.window.NoteListWindowFactory" id="MarkBookToolWindow"
+                    secondary="true" anchor="right"/>
+        <!--<notificationGroup displayType="BALLOON" id="addSuccess"/>-->
+    </extensions>
 
-  <actions>
-    <!-- Add your actions here -->
-    <action id="MB_EditorPopupAction" class="com.cheng.plugin.markbook.action.EditorPopupAction" text="添加MB笔记"
-            description="右击添加MB笔记的子菜单">
-      <add-to-group group-id="EditorPopupMenu" anchor="first"/>
-      <keyboard-shortcut keymap="$default" first-keystroke="ctrl P"/>
-    </action>
-  </actions>
+    <actions>
+        <!-- Add your actions here -->
+        <action id="MB_EditorPopupAction" class="com.cheng.plugin.markbook.action.EditorPopupAction" text="添加MB笔记"
+                description="右击添加MB笔记的子菜单">
+            <add-to-group group-id="EditorPopupMenu" anchor="first"/>
+            <keyboard-shortcut keymap="$default" first-keystroke="ctrl P"/>
+        </action>
+    </actions>
 
 </idea-plugin>

@@ -1,6 +1,6 @@
-package com.cheng.plugin.markbook.model;
+package com.cheng.plugin.markbook.data;
 
-public class Node {
+public class Note {
     /**
      * 笔记标题
      */

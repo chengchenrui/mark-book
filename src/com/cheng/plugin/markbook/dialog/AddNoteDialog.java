@@ -1,13 +1,15 @@
 package com.cheng.plugin.markbook.dialog;
 
-import java.awt.*;
-
-import javax.swing.*;
-
+import com.cheng.plugin.markbook.data.DataCenter;
+import com.cheng.plugin.markbook.data.DataConvert;
+import com.cheng.plugin.markbook.data.Note;
+import com.intellij.openapi.ui.DialogWrapper;
+import com.intellij.openapi.ui.MessageDialogBuilder;
+import com.intellij.ui.EditorTextField;
 import org.jetbrains.annotations.Nullable;
 
-import com.intellij.openapi.ui.DialogWrapper;
-import com.intellij.ui.EditorTextField;
+import javax.swing.*;
+import java.awt.*;
 
 public class AddNoteDialog extends DialogWrapper {
 
@@ -22,7 +24,8 @@ public class AddNoteDialog extends DialogWrapper {
     }
 
     @Override
-    protected @Nullable JComponent createCenterPanel() {
+    protected @Nullable
+    JComponent createCenterPanel() {
         JPanel panel = new JPanel(new BorderLayout());
         editorTextFieldTitle = new EditorTextField("笔记标题");
         editorTextFieldMark = new EditorTextField("笔记内容");
@@ -41,8 +44,18 @@ public class AddNoteDialog extends DialogWrapper {
             // 获取标题
             String title = editorTextFieldTitle.getText();
             // 获取内容
-            String content = editorTextFieldMark.getText();
-            System.out.println(title + " : " + content);
+            String mark = editorTextFieldMark.getText();
+            String fileType = DataCenter.CURRENT_FILE_TYPE;
+            Note note = new Note();
+            note.setTitle(title);
+            note.setMark(mark);
+            note.setContent(DataCenter.SELECTED_TEXT);
+            note.setFileName(DataCenter.CURRENT_FILE_NAME);
+            note.setFileType(fileType);
+            DataCenter.NOTE_LIST.add(note);
+            DataCenter.TABLE_MODEL.addRow(DataConvert.convert(note));
+            MessageDialogBuilder.yesNo("操作结果", "添加成功").show();
+            AddNoteDialog.this.dispose();
         });
         panel.add(addButton);
         return panel;

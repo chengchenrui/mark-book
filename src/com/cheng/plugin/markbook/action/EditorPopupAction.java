@@ -1,7 +1,7 @@
 package com.cheng.plugin.markbook.action;
 
 import com.cheng.plugin.markbook.dialog.AddNoteDialog;
-import com.cheng.plugin.markbook.model.DataCenter;
+import com.cheng.plugin.markbook.data.DataCenter;
 import com.intellij.openapi.actionSystem.AnAction;
 import com.intellij.openapi.actionSystem.AnActionEvent;
 import com.intellij.openapi.actionSystem.CommonDataKeys;
