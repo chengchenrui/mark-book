@@ -18,14 +18,17 @@ public class DefaultSourceNoteData implements SourceNoteData {
         this.noteList = noteList;
     }
 
+    @Override
     public String getFileName() {
         return fileName;
     }
 
+    @Override
     public String getTopic() {
         return topic;
     }
 
+    @Override
     public List<Note> getNoteList() {
         return noteList;
     }
