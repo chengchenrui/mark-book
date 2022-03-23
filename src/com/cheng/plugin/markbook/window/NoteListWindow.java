@@ -45,7 +45,7 @@ public class NoteListWindow {
                 String path = virtualFile.getPath();
                 String filePath = path + "/" + topic + ".md";
                 Processor processor = new MyFreeMarkProcessor();
-                processor.process(new DefaultSourceNoteData(topic, filePath, DataCenter.NOTE_LIST));
+                processor.process(new DefaultSourceNoteData(filePath, topic, DataCenter.NOTE_LIST));
                 MessageDialogBuilder.yesNo("操作结果", "添加成功!").show();
                 // NotificationGroup notificationGroup = NotificationGroupManager.getInstance().getNotificationGroup("addSuccess");
                 NotificationGroup notificationGroup = new NotificationGroup("addSuccess", NotificationDisplayType.BALLOON, true);
